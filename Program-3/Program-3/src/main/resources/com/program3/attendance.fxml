@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="465.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.program3.Controllers.AttendanceController">
+   <children>
+      <VBox layoutX="-2.0" prefHeight="465.0" prefWidth="660.0" spacing="5.0">
+         <children>
+            <TableView fx:id="attendanceTable" prefHeight="291.0" prefWidth="555.0">
+               <columns>
+                  <TableColumn fx:id="nrCol" prefWidth="33.5" text="Nr" />
+                  <TableColumn fx:id="nameCol" prefWidth="75.0" text="First name" />
+                  <TableColumn fx:id="surnameCol" prefWidth="75.0" text="Last name" />
+                  <TableColumn fx:id="groupCol" prefWidth="116.5" text="Group" />
+               </columns></TableView>
+            <Separator prefWidth="200.0" />
+            <HBox alignment="CENTER" prefHeight="0.0" prefWidth="555.0" spacing="200.0">
+               <children>
+                  <Label text="Filter">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label text="Attendance">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Separator prefWidth="200.0" />
+            <HBox prefHeight="158.0" prefWidth="555.0" spacing="7.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="128.0" prefWidth="298.0" spacing="12.0">
+                     <children>
+                        <Label text="From" />
+                        <DatePicker fx:id="datePickerFilterFrom" />
+                        <Label prefHeight="17.0" prefWidth="17.0" text="To" />
+                        <DatePicker fx:id="datePickerFilterTo" />
+                     </children>
+                     <padding>
+                        <Insets left="30.0" />
+                     </padding>
+                  </VBox>
+                  <Separator orientation="VERTICAL" prefHeight="200.0" />
+                  <VBox alignment="CENTER_RIGHT" prefHeight="128.0" prefWidth="231.0" spacing="10.0">
+                     <children>
+                        <DatePicker fx:id="datePickerAttendance" prefHeight="25.0" prefWidth="114.0" />
+                        <Button fx:id="buttonSetAttendance" mnemonicParsing="false" onAction="#updateTableStudents" prefHeight="25.0" prefWidth="112.0" text="Set Attendance" />
+                        <Button fx:id="buttonSetAttendance1" mnemonicParsing="false" onAction="#updateTableGroup" prefHeight="25.0" prefWidth="113.0" text="Set Attendance" />
+                        <HBox alignment="CENTER" prefHeight="18.0" prefWidth="206.0">
+                           <children>
+                              <CheckBox fx:id="checkBoxPresent" mnemonicParsing="false" text="Attended" />
+                           </children>
+                           <padding>
+                              <Insets left="70.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets right="40.0" />
+                     </padding>
+                  </VBox>
+                  <VBox prefHeight="128.0" prefWidth="143.0" spacing="20.0">
+                     <children>
+                        <Label text="Day" />
+                        <Label text="Student" />
+                        <Label text="Group" />
+                     </children>
+                     <padding>
+                        <Insets top="4.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </HBox>
+            <Separator prefWidth="200.0" />
+            <HBox alignment="CENTER" prefHeight="59.0" prefWidth="555.0" spacing="30.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#exportStudentsToPDF" text="Save to PDF" />
+                  <Button fx:id="back" mnemonicParsing="false" onAction="#switchToMainScene" text="Back" />
+                  <Button fx:id="buttonFilter" mnemonicParsing="false" onAction="#filter" text="Filter" />
+                  <Button fx:id="buttonResetFilter" mnemonicParsing="false" onAction="#resetFilter" text="Reset filter" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
